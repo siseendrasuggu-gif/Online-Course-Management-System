@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aether Academy | Premium Online Learning</title>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <!-- Background Gradients -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="/" class="logo" id="nav-logo">
+        <div class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <span>AetherAcademy</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#" class="nav-link active" id="link-explore"><i class="fa-solid fa-compass"></i> Explore</a>
+        <a href="#" class="nav-link hidden" id="link-dashboard"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+      </nav>
+      <div class="nav-auth" id="nav-auth-section">
+        <button class="btn btn-secondary" id="btn-show-login">Sign In</button>
+        <button class="btn btn-primary" id="btn-show-register">Get Started</button>
+      </div>
+      <div class="nav-profile hidden" id="nav-profile-section">
+        <div class="profile-info">
+          <span class="profile-name" id="user-display-name">Loading...</span>
+          <span class="profile-role" id="user-display-role">Student</span>
+        </div>
+        <div class="profile-avatar" id="profile-trigger">
+          <i class="fa-regular fa-user"></i>
+          <!-- Dropdown Menu -->
+          <div class="profile-dropdown" id="profile-dropdown-menu">
+            <button id="btn-logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="main-content" id="main-content">
+    
+    <!-- VIEW: EXPLORE / LANDING -->
+    <section id="view-explore" class="view-section">
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-content">
+          <span class="badge">Next-Gen Education</span>
+          <h1 class="hero-title">Expand Your Horizons With <span>Immersive</span> Courses</h1>
+          <p class="hero-subtitle">Learn from top-tier professionals, track your milestones, and master in-demand industry skills using our ultra-sleek workspace.</p>
+          <div class="search-bar-container">
+            <div class="search-input-wrapper">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="course-search" placeholder="What skill would you like to master today?">
+            </div>
+            <button class="btn btn-primary btn-search" id="btn-search">Search</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories and Filters -->
+      <div class="filter-bar">
+        <h2 class="section-title">Featured Courses</h2>
+        <div class="category-tabs" id="category-tabs">
+          <button class="category-tab active" data-category="all">All Specialties</button>
+          <button class="category-tab" data-category="Development">Development</button>
+          <button class="category-tab" data-category="Design">Design</button>
+        </div>
+      </div>
+
+      <!-- Course Cards Grid -->
+      <div class="courses-grid" id="courses-grid">
+        <!-- Dynamic content injected here -->
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: STUDENT DASHBOARD -->
+    <section id="view-student-dashboard" class="view-section hidden">
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-title">Welcome back, <span id="student-welcome-name">Learner</span>!</h1>
+          <p class="dashboard-subtitle">Track your learning metrics and resume your learning path.</p>
+        </div>
+        <div class="stats-cards">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-book-open-reader"></i></div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-enrolled-count">0</span>
+              <span class="stat-label">Enrolled Courses</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div class="stat-info">
+              <span class="stat-value" id="stat-completed-count">0</span>
+              <span class="stat-label">Lessons Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">My Learning Path</h2>
+      <div class="my-courses-grid" id="student-courses-grid">
+        <!-- Dynamic enrolled courses -->
+      </div>
+    </section>
+
+    <!-- VIEW: INSTRUCTOR DASHBOARD -->
+    <section id="view-instructor-dashboard" class="view-section hidden">
+      <div class="dashboard-header">
+        <div>
+          <h1 class="dashboard-title">Instructor Workspace</h1>
+          <p class="dashboard-subtitle">Build custom curricula, upload learning resources, and track student success.</p>
+        </div>
+        <div class="dashboard-actions">
+          <button class="btn btn-primary" id="btn-show-create-course"><i class="fa-solid fa-plus"></i> Create New Course</button>
+        </div>
+      </div>
+
+      <div class="stats-cards instructor-stats">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-created-courses-count">0</span>
+            <span class="stat-label">Courses Created</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-total-students-count">0</span>
+            <span class="stat-label">Students Enrolled</span>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-title">My Published Courses</h2>
+      <div class="my-courses-grid" id="instructor-courses-grid">
+        <!-- Dynamic instructor courses -->
+      </div>
+    </section>
+
+    <!-- VIEW: COURSE DETAILS -->
+    <section id="view-course-details" class="view-section hidden">
+      <button class="btn-back" id="btn-back-to-explore"><i class="fa-solid fa-arrow-left"></i> Back to Explore</button>
+      <div class="course-detail-container" id="course-detail-content">
+        <!-- Dynamic course detail content -->
+      </div>
+    </section>
+
+    <!-- VIEW: INTERACTIVE COURSE PLAYER -->
+    <section id="view-course-player" class="view-section hidden">
+      <div class="player-layout">
+        <!-- Left: Video Panel & Notes -->
+        <div class="player-main">
+          <div class="player-header">
+            <button class="btn-back" id="btn-back-to-dashboard"><i class="fa-solid fa-arrow-left"></i> Return to Dashboard</button>
+            <h1 class="player-course-title" id="player-course-title">Course Title</h1>
+          </div>
+          
+          <div class="video-container-wrapper">
+            <video id="course-video" controls autoplay>
+              Your browser does not support the HTML5 video tag.
+            </video>
+          </div>
+
+          <div class="lesson-info-panel">
+            <div class="lesson-details">
+              <h2 class="lesson-active-title" id="player-lesson-title">Lesson Title</h2>
+              <span class="lesson-duration" id="player-lesson-duration"><i class="fa-regular fa-clock"></i> 00:00</span>
+            </div>
+            <button class="btn btn-secondary" id="btn-toggle-complete">
+              <i class="fa-regular fa-circle-check"></i> <span id="toggle-complete-text">Mark as Completed</span>
+            </button>
+          </div>
+
+          <!-- Video Player Tabs -->
+          <div class="tabs-container">
+            <div class="tab-triggers">
+              <button class="tab-trigger active" data-tab="tab-overview">Overview</button>
+              <button class="tab-trigger" data-tab="tab-resources">Resources</button>
+            </div>
+            <div class="tab-contents">
+              <div class="tab-content active" id="tab-overview">
+                <p id="player-course-description">Description of the course goes here...</p>
+              </div>
+              <div class="tab-content" id="tab-resources">
+                <ul class="resources-list">
+                  <li><a href="#" onclick="alert('Demo Resource: Source code available at GitHub repo.')"><i class="fa-solid fa-file-code"></i> Project Files & Boilerplates</a></li>
+                  <li><a href="#" onclick="alert('Demo Resource: Lecture notes pdf is self-contained.')"><i class="fa-solid fa-file-pdf"></i> Core Lecture Slides & Reference Notes</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Curriculum Navigation Sidebar -->
+        <aside class="player-sidebar">
+          <div class="sidebar-header">
+            <h3>Course Syllabus</h3>
+            <div class="progress-bar-wrapper">
+              <div class="progress-info">
+                <span>Your Progress</span>
+                <span id="player-progress-percentage">0%</span>
+              </div>
+              <div class="progress-bar-outer">
+                <div class="progress-bar-inner" id="player-progress-bar" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+          <div class="sidebar-lessons" id="player-lessons-list">
+            <!-- Dynamic lesson list items -->
+          </div>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: AUTHENTICATION (LOGIN / REGISTER) -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="btn-close-auth"><i class="fa-solid fa-xmark"></i></button>
+      <div class="modal-tabs">
+        <button class="modal-tab active" id="tab-login-trigger">Sign In</button>
+        <button class="modal-tab" id="tab-register-trigger">Sign Up</button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="form-login" class="auth-form">
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input type="email" id="login-email" required placeholder="name@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </div>
+        </div>
+        <div id="login-error" class="form-error hidden"></div>
+        <button type="submit" class="btn btn-primary btn-block">Sign In to Account</button>
+      </form>
+
+      <!-- Register Form -->
+      <form id="form-register" class="auth-form hidden">
+        <div class="form-group">
+          <label for="register-name">Full Name</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input type="text" id="register-name" required placeholder="Jane Doe">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="register-email">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-envelope input-icon"></i>
+            <input type="email" id="register-email" required placeholder="name@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="register-password" required placeholder="Create password (min 6 characters)">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Account Objective</label>
+          <div class="role-selector">
+            <label class="role-option">
+              <input type="radio" name="register-role" value="student" checked>
+              <div class="role-option-box">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Student</span>
+              </div>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="register-role" value="instructor">
+              <div class="role-option-box">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <span>Instructor</span>
+              </div>
+            </label>
+          </div>
+        </div>
+        <div id="register-error" class="form-error hidden"></div>
+        <button type="submit" class="btn btn-primary btn-block">Create New Account</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CREATE COURSE (INSTRUCTORS ONLY) -->
+  <div class="modal-overlay" id="create-course-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="btn-close-create-course"><i class="fa-solid fa-xmark"></i></button>
+      <h2 class="modal-title">Create a New Course</h2>
+      <form id="form-create-course">
+        <div class="form-group">
+          <label for="course-title">Course Title</label>
+          <input type="text" id="course-title" required placeholder="e.g. Mastering Python Fundamentals">
+        </div>
+        <div class="form-group">
+          <label for="course-category">Specialty Category</label>
+          <select id="course-category">
+            <option value="Development">Development</option>
+            <option value="Design">Design</option>
+            <option value="Business">Business</option>
+            <option value="Marketing">Marketing</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="course-difficulty">Difficulty Level</label>
+          <select id="course-difficulty">
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="course-thumbnail">Thumbnail Image URL</label>
+          <input type="url" id="course-thumbnail" placeholder="https://images.unsplash.com/... (optional)">
+        </div>
+        <div class="form-group">
+          <label for="course-description">Detailed Description</label>
+          <textarea id="course-description" required rows="4" placeholder="Briefly describe what students will achieve in this course..."></textarea>
+        </div>
+        <div id="create-course-error" class="form-error hidden"></div>
+        <button type="submit" class="btn btn-primary btn-block">Publish Core Course</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: ADD LESSON (INSTRUCTORS ONLY) -->
+  <div class="modal-overlay" id="add-lesson-modal">
+    <div class="modal-card">
+      <button class="modal-close" id="btn-close-add-lesson"><i class="fa-solid fa-xmark"></i></button>
+      <h2 class="modal-title">Add Lesson to Course</h2>
+      <h4 class="modal-subtitle" id="add-lesson-course-name">Course Name</h4>
+      <form id="form-add-lesson">
+        <input type="hidden" id="add-lesson-course-id">
+        <div class="form-group">
+          <label for="lesson-title">Lesson Title</label>
+          <input type="text" id="lesson-title" required placeholder="e.g. Chapter 1: Introduction & Architecture">
+        </div>
+        <div class="form-group">
+          <label for="lesson-video-url">MP4 Video URL</label>
+          <input type="url" id="lesson-video-url" required placeholder="e.g. https://commondatastorage.googleapis.com/...mp4">
+          <small class="form-help">Provide an direct MP4 video link for the course media player.</small>
+        </div>
+        <div class="form-group">
+          <label for="lesson-duration">Duration</label>
+          <input type="text" id="lesson-duration" required placeholder="e.g. 12:45">
+        </div>
+        <div id="add-lesson-error" class="form-error hidden"></div>
+        <button type="submit" class="btn btn-primary btn-block">Add Lesson</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification System -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
