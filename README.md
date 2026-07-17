@@ -51,7 +51,7 @@ Online-Course-Management-System/
    ```
 2. Open your web browser and navigate to:
    ```
-   http://localhost:5000
+   http://localhost:5050
    ```
 
 ### Default Seed Credentials
